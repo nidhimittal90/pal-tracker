@@ -5,4 +5,4 @@ applications:
   routes:
   - route: myreview-pal-tracker-review.cfapps.io
   env:
-    WELCOME_MESSAGE: Hello from Review Evnironment.
+    WELCOME_MESSAGE: Hello from the review environment

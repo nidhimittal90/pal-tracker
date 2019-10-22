@@ -27,10 +27,10 @@ namespace PalTracker
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
              services.AddSingleton(sp => new WelcomeMessage(
-              Configuration.GetValue<string>("WELCOME_MESSAGE", "WELCOME_MESSAGE not configured."))             
+              Configuration.GetValue<string>("WELCOME_MESSAGE", "WELCOME_MESSAGE not configured."))  
           );
 
-
+            services.AddSingleton<ITimeEntryRepository,InMemoryTimeEntryRepository>();
           services.AddSingleton(sp => new CloudFoundryInfo(
               Configuration.GetValue<string>("port", "123"),
               Configuration.GetValue<string>("memoryLimit", "512M"),

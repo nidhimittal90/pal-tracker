@@ -5,14 +5,14 @@ namespace PalTracker
     public class TimeEntry : IComparable<TimeEntry>
     {
 
-        public int Id {get; set;}
-        public int ProjectId {get; set;}
-        public int UserId {get; set;}
+        public long? Id {get; set;}
+        public long ProjectId {get; set;}
+        public long UserId {get; set;}
         public DateTime Date {get; set;}
         public int Hours {get; set; }
 
 
-        public TimeEntry(int id, int projectId, int userId, DateTime date, int hours)
+        public TimeEntry(long id, long projectId, long userId, DateTime date, int hours)
         {
             Id = id;
             ProjectId  = projectId;
@@ -21,7 +21,7 @@ namespace PalTracker
             Hours = hours;
         }
 
-        public TimeEntry(int projectId, int userId, DateTime date, int hours)
+        public TimeEntry(long projectId, long userId, DateTime date, int hours)
         {
             ProjectId = projectId;
             UserId = userId;
@@ -32,9 +32,11 @@ namespace PalTracker
      
         public int CompareTo(TimeEntry other)
         {
-            if(other.Id == Id && other.UserId == UserId)
+            if(this.Id != null && other.Id!=null)
+            {
+                if(other.Id == Id && other.UserId == UserId)
                 return 0;
-
+            }
             return 1;
         }
     }
